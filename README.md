@@ -26,10 +26,15 @@ This Google Apps Script automatically adjusts travel events in your Google Calen
 2. Copy the entire contents of `calendar_travel_time_adjustment.gs` from this repository and paste it into your Google Apps Script editor.
 
 3. Configure the script:
-   - Replace `CALENDAR_ID` with your Google Calendar ID
-   - Update `HOME_ADDRESS` with your home or default starting location
-   - Replace `API_KEY` with your Google Maps API key
-   - Adjust other configuration variables as needed (e.g., `DAYS_TO_PROCESS`, `TRAVEL_EVENT_PREFIX`, etc.)
+   In the configuration section at the top of the script, update the following variables:
+   - `CALENDAR_ID`: Replace with your Google Calendar ID (e.g., 'your_email@gmail.com' or the ID of a specific calendar)
+   - `HOME_ADDRESS`: Update with your home or default starting location (e.g., '123 Main St, Anytown, ST 12345')
+   - `API_KEY`: Replace with your Google Maps API key
+   - Adjust other configuration variables as needed:
+     - `DAYS_TO_PROCESS`: Number of days to look ahead in the calendar
+     - `TRAVEL_EVENT_PREFIX`: The prefix used by Reclaim.ai for travel events (default is '🚌 Travel')
+     - `MAX_HOURS_BEFORE_AFTER`: Maximum hours to look before/after an event for travel events
+     - Time-based multipliers and rush hour definitions
 
 4. Save the project by clicking on File > Save or using the floppy disk icon.
 
@@ -63,7 +68,7 @@ The script will now run automatically once per day, adjusting travel events for 
    - It adjusts the duration of the travel events based on the calculated travel time.
 
 ## Customization
-You can customize the script by modifying the following variables:
+You can customize the script by modifying the following variables in the configuration section:
 - `DAYS_TO_PROCESS`: Number of days to look ahead in the calendar
 - `MAX_HOURS_BEFORE_AFTER`: Maximum hours to look before/after an event for travel events
 - `WEEKDAY_RUSH_HOUR_MULTIPLIER` and `WEEKEND_BUSY_HOUR_MULTIPLIER`: Adjust these to change how much extra time is added during busy periods
@@ -73,4 +78,13 @@ You can customize the script by modifying the following variables:
 - If you encounter errors, check the execution log in the Google Apps Script editor for detailed error messages.
 - Ensure your Google Maps API key is valid and has the necessary permissions.
 - Verify that your Calendar ID is correct and that you have access to the calendar.
-- If travel events are not being adjusted
+- If travel events are not being adjusted, make sure the `TRAVEL_EVENT_PREFIX` matches the prefix used by Reclaim.ai in your calendar.
+
+## Contributing
+Contributions to improve the script are welcome. Please feel free to submit a pull request or create an issue if you have any suggestions or encounter any problems.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Disclaimer
+This script is provided as-is, without any guarantees. Please use it responsibly and ensure you have the necessary permissions to modify your calendar events and use the Google Maps API.
